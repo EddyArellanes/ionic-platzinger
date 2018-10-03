@@ -11,7 +11,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AboutPage } from '../pages/about/about';
 import { ServicesUserProvider } from '../providers/services-user';
 import { LoginPage } from '../pages/login/login';
+import { ConversationPage } from '../pages/conversation/conversation';
 import { SearchPipe } from '../pipes/search';
+//Firebase
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -19,8 +24,11 @@ import { SearchPipe } from '../pipes/search';
     HomePage,
     ListPage,
     LoginPage,
-    AboutPage,
-    SearchPipe
+    AboutPage,    
+    SearchPipe,
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   imports: [
     BrowserModule,
@@ -32,7 +40,7 @@ import { SearchPipe } from '../pipes/search';
     MyApp,
     HomePage,
     ListPage,
-    LoginPage,
+    LoginPage,    
     AboutPage
   ],
   providers: [

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { User, Status } from '../../interfaces/user'
 
 /**
  * Generated class for the ConversationPage page.
@@ -14,14 +15,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'conversation.html',
 })
 export class ConversationPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user: User
+  friend: User
+  status: Status
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController ,public navParams: NavParams) {
+    this.user = this.navParams.get('data')
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ConversationPage');
-    console.log('params:')
-    console.log(this.navParams.get('user'))
+    this.viewCtrl.setBackButtonText('Volver');
   }
 
 }

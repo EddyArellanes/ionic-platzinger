@@ -35,10 +35,16 @@
     <div>
       <b>Amigos</b>
     </div>
-    <div class="contact-list-item" *ngFor="let user of users | search: query; let i = index">
+    <div class="contact-list-item" *ngFor="let user of users | search: query; let i = index" (click)="goToConversation(user)"
+    
+    >
       <img src="assets/img/logo_live_online.png" alt="avatar" class="status">
       <b>{{ user.name }}</b>
-      <small *ngIf="user.status">{{ user.status }}</small>
+      <small *ngIf="user.status">
+        <div class="user-status-circle" 
+        [ngClass]="{'user-status-circle-offline': user.status == status.Offline || user.status == status.AppearOffline}">
+        </div>
+      </small>
     </div>  
   </div>
   

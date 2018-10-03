@@ -8,10 +8,11 @@ import { Status } from '../../interfaces/user'
 })
 export class HomePage {
   users : User[]
-  
+  status = Status
   constructor(public navCtrl: NavController) {
     let eduardo: User = {
       id: 1,
+      uid: 1,
       name: 'Eduardo',
       email: 'ed@gmail.com',
       nick: 'Langosta',
@@ -22,6 +23,7 @@ export class HomePage {
     };
     let freddy: User = {
       id: 2,
+      uid: 2,
       name: 'Freddy',
       email: 'fd@gmail.com',
       nick: 'Fredtsz',
@@ -33,7 +35,7 @@ export class HomePage {
     this.users = [eduardo, freddy]
   }
   goToConversation(user){
-    this.navCtrl.push('ConversationPage', {user: user})
+    this.navCtrl.push('ConversationPage', { data: user})
   }
 
 }
