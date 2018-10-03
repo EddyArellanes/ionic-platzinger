@@ -7,22 +7,33 @@ import { Status } from '../../interfaces/user'
   templateUrl: 'home.html'
 })
 export class HomePage {
-  friends : User[]
+  users : User[]
   
   constructor(public navCtrl: NavController) {
     let eduardo: User = {
+      id: 1,
       name: 'Eduardo',
+      email: 'ed@gmail.com',
+      nick: 'Langosta',
       age: 28,
       active: true,
+      friend: true,
       status: Status.AppearOffline
     };
     let freddy: User = {
+      id: 2,
       name: 'Freddy',
+      email: 'fd@gmail.com',
+      nick: 'Fredtsz',
       age: 19,
+      friend: false,
       active: true,
       status: Status.Online
     }
-    this.friends = [eduardo, freddy]
+    this.users = [eduardo, freddy]
+  }
+  goToConversation(user){
+    this.navCtrl.push('ConversationPage', {user: user})
   }
 
 }

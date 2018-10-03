@@ -4,15 +4,42 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <img src="assets/img/logo_live_add.png" class="icon-in-button">
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content padding class="background-platzinger">
+  <ion-grid id="home-me-container">
+    <ion-row>
+      <ion-col col-3>
+        <div class="avatar-frame-online">
+            <img src="assets/img/generic_avatar.png" alt="avatar" class="avatar-img img-fluid">
+        </div>
+      </ion-col>
+      <ion-col col-9>
+        Eddy <br> 
+        <small>PowerE</small><br>
+        <small><b>eddy@gmail.com</b></small><br>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="search-box-container">
+    <ion-input type="text" [(ngModel)]="query" placeholder="Buscar..."></ion-input>
+  </div>
 
-  <p *ngFor="let user of friends">
-    {{user.name}} - {{user.age}}
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <div>
+    <div>
+      <b>Amigos</b>
+    </div>
+    <div class="contact-list-item" *ngFor="let user of users | search: query; let i = index">
+      <img src="assets/img/logo_live_online.png" alt="avatar" class="status">
+      <b>{{ user.name }}</b>
+      <small *ngIf="user.status">{{ user.status }}</small>
+    </div>  
+  </div>
+  
 </ion-content>

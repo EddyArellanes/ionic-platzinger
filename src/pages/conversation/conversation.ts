@@ -20,6 +20,8 @@ export class ConversationPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConversationPage');
+    console.log('params:')
+    console.log(this.navParams.get('user'))
   }
 
 }
